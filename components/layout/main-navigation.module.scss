@@ -1,0 +1,130 @@
+@use "../../styles/abstracts" as *;
+
+.header {  
+  @include flex; 
+  justify-content: space-between;
+  align-items: center;
+/* ---------------------------------- logo ---------------------------------- */
+  .logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+    min-width: 50px;
+  }
+  /* --------------------------- nav Button (mobile) -------------------------- */
+  .mobile-nav-toggle {  
+
+    display: none;
+    @include breakpoint-down(xs) {
+      display: block;
+      position: absolute;
+      top: 2.5rem;
+      right: 1rem;  
+      background: transparent;
+      z-index: 2000;
+      border: 0;
+      width: 1.5rem;
+      aspect-ratio: 1/1;
+      background-image: url("../../public/assets/shared/icon-hamburger.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &[aria-expanded = true] {
+        background-image: url("../../public/assets/shared/icon-close.svg");
+      }
+
+      &:focus-visible {
+        outline: 3px solid white;
+        outline-offset: 5px;
+      }
+    }
+  }
+  /* ---------------------------- .primaryNavigation --------------------------- */
+  .primaryNavigation {
+    @include underline-indicators(2em) ; 
+    @include flex ( 1.5em clamp(1.5rem, 6vw, 10rem));  
+  
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: hsl(var(--clr-dark) / 0.95);
+    > * { 
+      cursor: pointer;
+    }
+
+    @supports (backdrop-filter: blur(2rem)) {
+      background: hsl(var(--clr-white) / 0.05);
+      backdrop-filter: blur(2rem);
+    }
+
+    // &.underline-indicators > .active {
+    //   border: 0;
+    // }
+
+    a {
+      text-decoration: none;
+      span {
+        font-weight: 700;
+        margin-right: 0.5em;
+      }
+    }
+
+
+
+    @include breakpoint-down(xs) {
+      flex-direction: column;
+      position: fixed;
+      inset: 0 0 0 20%;
+      z-index: 1000;
+      padding: min(20rem, 15vh) 2rem;
+      transform: translateX(100%);
+      transition: transform 500ms ease-in-out;  
+
+      > {
+        * { 
+          padding: .5em 0 ;
+        }}
+
+      &.navOpen {
+        transform: translateX(0);
+      }
+    }
+
+    @include breakpoint (xs) { 
+      padding-inline: clamp(2.5em , 5vw , 7em) ; 
+    }
+
+    @include breakpoint-limit (xs ,sm)  { 
+       a { 
+         span { 
+           display: none;
+         }
+       }
+    }
+
+    @include breakpoint (sm)  { 
+      margin-block: 2em;   
+    }
+
+  }
+
+  .line {    
+    display: none;   
+    @include breakpoint (sm) { 
+      display: block;
+      width: 90%;
+      height: 1px;
+      position: relative;
+      background-color: hsl(var(--clr-white) / .3);
+      backdrop-filter: blur(3rem);
+      z-index: 1000;
+      transform: translateX(2.7em);
+
+      @supports (backdrop-filter: blur(2rem)) {
+        background: hsl(var(--clr-white) / 0.2);
+        backdrop-filter: blur(.2rem);
+      }
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */

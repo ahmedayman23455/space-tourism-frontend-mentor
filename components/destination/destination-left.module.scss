@@ -1,0 +1,28 @@
+@use "../../styles/abstracts" as *;
+
+.destinationLeft {
+  // --flow-space: 2em;
+  @include flow(4em) ; 
+  
+  h1 {
+    text-transform: uppercase;
+    color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    font-weight: normal;
+    letter-spacing: var(--letter-spacing-1);
+
+    span {
+      margin-right: 0.4em;
+      color: hsl(var(--clr-white) / 0.5);
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    margin: auto;  
+    width: clamp(10.625em , 35vw , 22.8em);
+    height: clamp(10.625em , 35vw , 22.8em);  
+
+  }
+}

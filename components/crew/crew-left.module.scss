@@ -1,0 +1,82 @@
+@use "../../styles/abstracts" as *;
+
+.crewLeft {
+  grid-row: 2/3;
+  display: grid;
+  gap: 1.5em;
+  align-self: center;
+  justify-self: center;
+  @include breakpoint-down(sm) {
+    margin-top: 2em;
+  }
+
+  @include breakpoint(xxs) {
+    grid-row: 1/2;
+  }
+
+  .title {
+    text-transform: uppercase;
+    color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    font-weight: normal;
+    letter-spacing: var(--letter-spacing-1);
+    display: none;
+
+    span {
+      margin-right: 0.4em;
+      color: hsl(var(--clr-white) / 0.5);
+    }
+
+    @include breakpoint(xxs) {
+      display: block;
+      justify-self: start;
+    }
+  }
+
+  .content {
+    @include flow(0.3em);
+    h3 {
+      text-transform: uppercase;
+      font-size: var(--fs-400);
+      color: hsl(var(--clr-light) / 0.5);
+      font-weight: normal;
+      // letter-spacing: var(--letter-spacing-3);
+    }
+    h1 {
+      font-weight: normal;
+      font-size: var(--fs-800);
+      // font-size: var(--fs-800);
+      text-transform: uppercase;
+    }
+
+    p {
+      color: hsl(var(--clr-light));
+      font-size: var(--fs-400);
+    }
+
+    @include breakpoint(sm) {
+      min-height: rem(250px);
+    }
+  }
+
+  .dotIndicators {
+    @include dot-indicators;
+    @include flex;
+    justify-content: center;
+    grid-row: 1/2;
+
+    a.active {
+      background-color: hsl(var(--clr-white));
+    }
+
+    @include breakpoint(xxs) {
+      grid-row: 3/4;
+    }
+
+    @include breakpoint(sm) {
+      justify-content: start;
+      margin-top: 2em;
+    }
+  }
+}

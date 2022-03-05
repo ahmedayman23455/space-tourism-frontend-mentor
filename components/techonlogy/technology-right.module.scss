@@ -1,0 +1,29 @@
+@use "../../styles/abstracts" as *;
+
+.technologyRight {
+  position: relative;
+  max-width: 100% !important; 
+  width: 100%;  
+  height: clamp(12.625rem, 40vw, 32.9375rem);
+
+  span { 
+    max-width: 100%;
+
+  }
+
+  .image__desktop-image {
+    display: none !important;
+  }
+  
+  @media (orientation: landscape) {
+    .image__desktop-image {
+      display: block !important;
+    }
+    .image__mobile-image {
+      display: none !important;
+    }
+  }
+  
+
+}
+

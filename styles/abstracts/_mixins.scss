@@ -1,0 +1,91 @@
+@use "./breakpoints" as *;
+
+/* ----------------------------- grid-container ----------------------------- */
+@mixin grid-container($row-gap: 1em , $container-gap: 2rem) {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding: 0 1em;
+  row-gap: $row-gap;
+  * {
+    max-width: 56ch;
+  }
+
+  @include breakpoint(sm) {
+    text-align: left;
+    // column-gap: var(--container-gap, 2rem);
+    column-gap: $container-gap;
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+
+    > {
+      *:first-child {
+        grid-column: 2;
+        // outline: 1px solid red;
+      }
+      *:last-child {
+        grid-column: 3;
+        // outline: 1px solid yellow;
+      }
+    }
+  }
+}
+
+/* ---------------------------------- flow ---------------------------------- */
+@mixin flow($flow-space: 1em) {
+  > * + * {
+    margin-top: $flow-space !important;
+  }
+}
+/* ---------------------------------- flex ---------------------------------- */
+@mixin flex($gap: 1em) {
+  display: flex;
+  gap: $gap; 
+}
+/* -------------------------------------------------------------------------- */
+
+@mixin underline-indicators( $underline-gap : 1em ) {
+  > {
+    * {
+      padding: $underline-gap 0; 
+      border: 0;
+      border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+      &:hover,
+      &:focus {
+        border-bottom: 0.2rem solid hsl(var(--clr-white) / 0.5);
+      }
+    }
+    .active,
+    [aria-selected="true"] {
+      color: hsl(var(--clr-white) / 1);
+      border-bottom: 0.2rem solid hsl(var(--clr-white) / 1);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */  
+
+@mixin dot-indicators {
+  > {
+    * {
+      cursor: pointer;
+      border: 0;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      padding: 0.35em;
+      background-color: hsl(var(--clr-white) / 0.25);
+
+      &:hover,
+      &:focus {
+        background-color: hsl(var(--clr-white) / 0.5);
+      }
+    }
+    [aria-selected="true"] {
+      // background-color: hsl(var(--color-white) / 1);
+      background-color: red;
+      background-color: hsl(var(--clr-white) / 1);
+    }
+  }
+}

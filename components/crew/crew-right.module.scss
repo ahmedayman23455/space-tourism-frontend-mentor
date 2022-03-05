@@ -1,0 +1,51 @@
+@use "../../styles/abstracts" as *;
+
+.crewRight {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 100% !important;
+  border-bottom: 1px solid hsl(var(--clr-white) / 0.3);
+  gap: 1.3em;
+
+  @include breakpoint(xxs) {
+    border: none;
+  }
+
+  @include breakpoint-limit(xxs, xs) {
+    border: none;
+    align-self: end;
+  }
+
+  img {
+    width: rem(280px) !important;
+    height: rem(280px) !important;
+
+    @include breakpoint(xxs) {
+      width: rem(370px) !important;
+      height: rem(370px) !important;
+    }
+    @include breakpoint(xs) {
+      width: rem(430px) !important;
+      height: rem(430px) !important;
+    }
+  }
+  .title {
+    text-transform: uppercase;
+    color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    font-weight: normal;
+    letter-spacing: var(--letter-spacing-1);
+    display: block;
+
+    span {
+      margin-right: 0.4em;
+      color: hsl(var(--clr-white) / 0.5);
+    }
+
+    @include breakpoint(xxs) {
+      display: none;
+    }
+  }
+}

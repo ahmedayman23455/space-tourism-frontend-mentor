@@ -1,0 +1,10 @@
+@use "../../styles/abstracts" as *;
+.crewWrapper {
+  @include grid-container(2em);
+
+  @include breakpoint-down(xs) {
+    place-items: start;
+    grid-auto-rows: min-content 1fr;
+  }
+
+}

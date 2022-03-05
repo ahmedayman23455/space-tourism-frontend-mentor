@@ -1,0 +1,31 @@
+@use "../../styles/abstracts" as *;
+
+.technologyWrapper {
+  @include grid-container;
+  padding: 0;
+
+  @include breakpoint-down(sm) {
+    grid-auto-rows: 3.125rem clamp(12.625rem, 40vw, 32.9375rem) auto;  
+    margin-top: 1em;
+  }
+
+  .title {
+    text-transform: uppercase;
+    color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    font-weight: normal;
+    letter-spacing: var(--letter-spacing-1);
+    display: none;
+    span {
+      margin-right: 0.4em;
+      color: hsl(var(--clr-white) / 0.5);
+    }
+    justify-self: start;  
+    padding-inline: 1em;
+    @include breakpoint-down(sm) {
+      display: block;
+      grid-row: 1/2; 
+    }
+  }
+}

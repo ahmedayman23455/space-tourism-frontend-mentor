@@ -1,0 +1,43 @@
+@use "../../styles//abstracts" as *;  
+
+.button {
+  a {
+    background-color: hsl(var(--clr-white));
+    color: hsl(var(--clr-dark));
+    font-size: 2rem;
+    font-family: var(--ff-serif);
+    display: inline-grid;
+    padding: 0 var(--p-y , 1.5em);
+    place-items: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+    @include breakpoint(xs) { 
+       --p-y: 2.2em;
+    }
+    @include breakpoint(md) { 
+      --p-y: 2.5em;
+   }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: hsl(var(--clr-white) / 0.1);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 500ms linear, transform 500ms ease-in-out;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+   
+  }
+}

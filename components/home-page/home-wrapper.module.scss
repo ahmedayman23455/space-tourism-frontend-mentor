@@ -1,0 +1,9 @@
+@use "../../styles//abstracts" as *;
+
+.homeWrapper {
+  @include grid-container ; 
+  @include breakpoint(sm) {
+    align-items: end;
+    padding-bottom: max(20vh, 6rem);
+  }
+}

@@ -1,0 +1,104 @@
+@use "../abstracts" as *;
+/* --------------------------------- general -------------------------------- */
+// .flex {
+//   display: flex;
+//   gap: var(--gap, 1em);
+// }
+
+// .grid {
+//   display: grid;
+//   gap: var(--gap, 1em);
+// }
+
+.container {
+  padding-inline: 2em; // new css property called logical property  it looks on inline axis of container (left and right)
+  max-width: 80rem;
+  margin-inline: auto;
+  // margin-top: var(--space-xxl);
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+}
+/* ------------------------------- error page ------------------------------- */
+
+.not-found {
+  margin-top: 10vh;
+  font-size: var(--fs-600);
+  text-align: center;
+  max-width: 40ch;
+  margin: auto;  
+  h2 { 
+    span { 
+      display: block; 
+    }
+  }
+  a {
+    display: inline-block;
+    font-size: (var(--fs-400));
+    padding: 0.5em 3em;
+    background: hsl(var(--clr-dark) / 0.95);
+    border: 1px solid hsl(var(--clr-white) / 0.5);
+
+    @supports (backdrop-filter: blur(2rem)) {
+      backdrop-filter: blur(2rem);
+      background-color: hsl(var(--clr-white) / 0.12);
+    }
+  }  
+
+  >* + * { 
+    margin-top: 1.3em;
+  }
+}
+
+/* ------------------------------- backgrounds ------------------------------ */
+
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.home-background {
+  background-image: url("../../public/assets/home/background-home-mobile.jpg");
+
+  @include breakpoint(xs) {
+    background-image: url("../../public/assets/home/background-home-tablet.jpg");
+    @include breakpoint(sm) {
+      background-image: url("../../public/assets/home/background-home-desktop.jpg");
+    }
+  }
+}
+.destination-background {
+  background-image: url("../../public/assets/destination/background-destination-mobile.jpg");
+
+  @include breakpoint(xs) {
+    background-image: url("../../public/assets/destination/background-destination-tablet.jpg");
+    @include breakpoint(sm) {
+      background-image: url("../../public/assets/destination/background-destination-desktop.jpg");
+    }
+  }
+}
+.crew-backgrounds {
+  background-image: url("../../public/assets/crew/background-crew-mobile.jpg");
+
+  @include breakpoint(xs) {
+    background-image: url("../../public/assets/crew/background-crew-tablet.jpg");
+    @include breakpoint(sm) {
+      background-image: url("../../public/assets/crew/background-crew-desktop.jpg");
+    }
+  }
+}
+.technology-background {
+  background-image: url("../../public/assets/technology/background-technology-mobile.jpg");
+
+  @include breakpoint(xs) {
+    background-image: url("../../public/assets/technology/background-technology-tablet.jpg");
+    @include breakpoint(sm) {
+      background-image: url("../../public/assets/technology/background-technology-desktop.jpg");
+    }
+  }
+}

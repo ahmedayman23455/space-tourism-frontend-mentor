@@ -1,0 +1,10 @@
+@use "../../styles/abstracts" as *;
+
+.destinationWrapper {
+  @include grid-container;
+  padding: 1.5em;
+  @include breakpoint-down(sm) {
+    align-items: start;
+    grid-auto-rows: min-content 1fr;
+  }
+}

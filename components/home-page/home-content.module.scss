@@ -1,0 +1,20 @@
+.homeContent { 
+
+    color: hsl(var(--clr-light));  
+    h1 { 
+        text-transform: uppercase;     
+        font-size: var(--fs-500);
+        font-family: var(--ff-sans-cond);  
+        letter-spacing: var(--letter-spacing-1) ;  
+        
+        span { 
+            display: block; 
+            font-size: var(--fs-900);  
+            font-family: var(--ff-serif);  
+            color: hsl(var(--clr-white))
+        }
+    }
+    p{
+        font-size: var(--fs-400); 
+    }
+}

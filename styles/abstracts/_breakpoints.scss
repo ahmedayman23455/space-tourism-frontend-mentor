@@ -1,0 +1,55 @@
+// to edit the breakpoints, check the style.scss file
+
+$breakpoints: (
+  xxs: 30em,
+  xs: 38em,
+  // ~512px
+  sm: 49em,
+  // ~768px
+  md: 64em,
+  // ~1024px
+  lg: 80em,
+  // ~1280px
+  xl: 90em // ~1440px,,,
+) !default;
+
+// $breakpoints: (
+//   xs: 32em,
+//   // ~512px
+//   sm: 48em,
+//   // ~768px
+//   md: 64em,
+//   // ~1024px
+//   lg: 80em,
+//   // ~1280px
+//   xl: 90em
+//    // ~1440px,,
+// ) !default;
+
+@mixin breakpoint($breakpoint, $logic: false) {
+  @if ($logic) {
+    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  }
+}
+@mixin breakpoint-down($breakpoint, $logic: false) {
+  @if ($logic) {
+    @media #{$logic} and (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  }
+}
+@mixin breakpoint-limit($breakpoint1, $breakpoint2) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint1)) and (max-width: map-get($map: $breakpoints, $key: $breakpoint2)) {
+    @content;
+  }
+}
